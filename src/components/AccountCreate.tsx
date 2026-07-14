@@ -54,49 +54,53 @@ export default function AccountCreate() {
         className="flex flex-col justify-center gap-4"
       >
         <div className="flex flex-row gap-4">
-          <label className="flex flex-col">
+          <label className="flex flex-col text-brand-grey-200 ">
             First Name
             <input
               {...register("firstName")}
               type="text"
               placeholder="John"
+              className="p-3 border-1 text-black placeholder:text-brand-grey-200 border-brand-grey-100 rounded-lg"
             />
             {errors.firstName && (
               <div className="text-red-500">{errors.firstName.message}</div>
             )}
           </label>
 
-          <label className="flex flex-col">
+          <label className="flex flex-col text-brand-grey-200">
             Last Name
             <input
               {...register("lastName")}
               type="text"
               placeholder="Doe"
+              className="p-3 border-1 text-black placeholder:text-brand-grey-200 border-brand-grey-100 rounded-lg"
             />
             {errors.lastName && (
               <div className="text-red-500">{errors.lastName.message}</div>
             )}
           </label>
         </div>
-        <label className="flex flex-col">
+        <label className="flex flex-col text-brand-grey-200">
           Company Email
           <input
             {...register("companyEmail")}
             type="text"
             placeholder="Enter your email address..."
+            className="p-3 border-1 text-black placeholder:text-brand-grey-200 border-brand-grey-100 rounded-lg"
           />
           {errors.companyEmail && (
             <div className="text-red-500">{errors.companyEmail.message}</div>
           )}
         </label>
 
-        <label className="flex flex-col">
+        <label className="flex flex-col text-brand-grey-200">
           Role
           <select
             {...register("role")}
             name="role"
             id="role"
             defaultValue="Select your role"
+            className="p-3 border-1 text-black placeholder:text-brand-grey-200 border-brand-grey-100 rounded-lg"
           >
             <option value="Select your role" disabled>
               Select your role
@@ -118,29 +122,31 @@ export default function AccountCreate() {
           )}
         </label>
 
-        <label className="flex flex-col">
+        <label className="flex flex-col text-brand-grey-200">
           Password
           <input
             {...register("password")}
             type="text"
             placeholder="Enter your password"
+            className="p-3 border-1 text-black placeholder:text-brand-grey-200 border-brand-grey-100 rounded-lg"
           />
           {errors.password && (
             <div className="text-red-500">{errors.password.message}</div>
           )}
         </label>
-        <label className="flex flex-col">
+        <label className="flex flex-col text-brand-grey-200">
           Confirm Password
           <input
             {...register("confirmPassword")}
             type="text"
             placeholder="Confirm your password..."
+            className="p-3 border-1 text-black placeholder:text-brand-grey-200 border-brand-grey-100 rounded-lg"
           />
           {errors.confirmPassword && (
             <div className="text-red-500">{errors.confirmPassword.message}</div>
           )}
         </label>
-        <button type="submit" disabled={isSubmitting}>
+        <button className="w-full h-[48px] bg-brand-light-blue-300 text-white rounded-lg" type="submit" disabled={isSubmitting}>
           {isSubmitting ? "Loading..." : "Continue"}
         </button>
       </form>
