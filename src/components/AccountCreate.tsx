@@ -6,7 +6,7 @@ const formSchema = z
   .object({
     firstName: z.string().min(1, "First name is required"),
     lastName: z.string().min(1, "Last name is required"),
-    companyEmail: z.string().email(),
+    companyEmail: z.email(),
     role: z.enum(
       [
         "CEO / Founder",
