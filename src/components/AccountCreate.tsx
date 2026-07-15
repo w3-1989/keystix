@@ -1,6 +1,10 @@
+//Todo - Config backend, create user and store additional info in table
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import Icon from "../assets/brand/icon_lb.svg?react";
+import { Check, X } from "lucide-react";
+
 import {
   Listbox,
   ListboxButton,
@@ -54,11 +58,29 @@ export default function AccountCreate() {
   const {
     register,
     control,
+    watch,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<FormFields>({
     resolver: zodResolver(formSchema),
   });
+
+  const password = watch("password");
+  const requirements = [
+    { label: "Minimum 8 characters", test: (val: string) => val.length >= 8 },
+    {
+      label: "Must contain one number",
+      test: (val: string) => /[0-9]/.test(val),
+    },
+    {
+      label: "Must contain one uppercase letter",
+      test: (val: string) => /[A-Z]/.test(val),
+    },
+    {
+      label: "Must contain one symbol",
+      test: (val: string) => /[^a-zA-Z0-9]/.test(val),
+    },
+  ];
 
   const onSubmit: SubmitHandler<FormFields> = (data) => {
     console.log(data);
@@ -166,7 +188,7 @@ export default function AccountCreate() {
         </label>
 
         <label className="flex flex-col text-brand-grey-200 text-[12px]">
-          Password  
+          Password
           <input
             {...register("password")}
             type="password"
@@ -191,6 +213,22 @@ export default function AccountCreate() {
             </div>
           )}
         </label>
+        <div className="flex flex-col gap-1 mt-2">
+          {requirements.map(({ label, test }) => {
+            const passed = test(password || "");
+            return (
+              <div
+                key={label}
+                className={`flex items-center gap-2 text-[12px] ${
+                  passed ? "text-brand-light-blue-300" : "text-brand-grey-200"
+                }`}
+              >
+                {passed ? <Check size={14} /> : <X size={14} />}
+                {label}
+              </div>
+            );
+          })}
+        </div>
         <button
           className="w-full text-[12px] h-[40px] bg-brand-light-blue-300 text-white rounded-lg"
           type="submit"
