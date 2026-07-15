@@ -1,10 +1,12 @@
-//Todo - Config backend, create user and store additional info in table
+// 2. Todo - Config backend, create user and store additional info in table
+// 1. Refactor Parts - Form Fields as a comp, controller/ Menu as a comp, schema + type, requirements/Validation, password requirements as a comp
+// Things to ask about, controller, how the data flows, useForms different extensions, watch, register, control etc also a zod breakdown
+
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import Icon from "../assets/brand/icon_lb.svg?react";
 import { Check, X } from "lucide-react";
-
 import {
   Listbox,
   ListboxButton,
@@ -12,8 +14,7 @@ import {
   ListboxOption,
 } from "@headlessui/react";
 import { Controller } from "react-hook-form";
-import { z } from "zod";
-
+import {createFranchisorFormSchema, type FormFields} from "../types/createFranchisorFormSchema"
 const roles = [
   "CEO / Founder",
   "COO (Chief Operating Officer)",
@@ -22,37 +23,6 @@ const roles = [
   "Executive Assistant / Chief of Staff",
 ] as const;
 
-const formSchema = z
-  .object({
-    firstName: z.string().min(1, "First name is required"),
-    lastName: z.string().min(1, "Last name is required"),
-    companyEmail: z.email(),
-    role: z.enum(
-      [
-        "CEO / Founder",
-        "COO (Chief Operating Officer)",
-        "Head of Operations",
-        "Business Development Manager",
-        "Executive Assistant / Chief of Staff",
-      ],
-      { error: "Role is Required" },
-    ),
-    password: z
-      .string()
-      .min(8, "Must be at least 8 characters")
-      .max(64, "Must be at most 64 characters")
-      .regex(/[a-z]/, "Must contain a lowercase letter")
-      .regex(/[A-Z]/, "Must contain an uppercase letter")
-      .regex(/[0-9]/, "Must contain a number")
-      .regex(/[^a-zA-Z0-9]/, "Must contain a special character"),
-    confirmPassword: z.string(),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    error: "Passwords don't match",
-    path: ["confirmPassword"],
-  });
-
-type FormFields = z.infer<typeof formSchema>;
 
 export default function AccountCreate() {
   const {
@@ -60,12 +30,14 @@ export default function AccountCreate() {
     control,
     watch,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<FormFields>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(createFranchisorFormSchema),
   });
 
   const password = watch("password");
+
   const requirements = [
     { label: "Minimum 8 characters", test: (val: string) => val.length >= 8 },
     {
@@ -81,9 +53,10 @@ export default function AccountCreate() {
       test: (val: string) => /[^a-zA-Z0-9]/.test(val),
     },
   ];
-
+//Config backend, create user and store additional info in table
   const onSubmit: SubmitHandler<FormFields> = (data) => {
     console.log(data);
+    reset();
   };
 
   return (
@@ -167,7 +140,7 @@ export default function AccountCreate() {
                 </ListboxButton>
                 <ListboxOptions
                   anchor="bottom start"
-                  className=" w-(--button-width) mt-2 rounded-xl border border-brand-grey-100 bg-white shadow-lg p-2 space-y-1 focus:outline-none"
+                  className=" w-(--button-width) mt-2 rounded-xl border border-brand-grey-100 bg-white p-2 space-y-1 focus:outline-none"
                 >
                   {roles.map((role) => (
                     <ListboxOption
