@@ -89,7 +89,7 @@ export default function AccountCreate() {
   return (
     <main className="flex flex-col items-center justify-center h-screen w-fill">
       <div className="flex flex-col justify-center items-center gap-2 mb-4">
-        <Icon className="w-12 h-12 mb-2" />
+        <Icon className="w-10 h-10 mb-2" />
         <div className="flex flex-col justify-center items-center">
           <h1 className="font-adelphi font-medium uppercase text-[24px]">
             Your World. Your System.
