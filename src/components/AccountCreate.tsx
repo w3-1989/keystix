@@ -1,5 +1,5 @@
 // Create Supabase client file D
-// Configure Backend (Create user), store data in table D
+// Configure Backend (Create user), store data in table 1/2
 // Create Auth Context
 // Create Router
 
