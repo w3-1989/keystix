@@ -1,5 +1,3 @@
-// Create Supabase client file D
-// Configure Backend (Create user), store data in table 1/2
 // Create Auth Context
 // Create Router
 
@@ -54,12 +52,19 @@ export default function AccountCreate() {
   //Config backend, create user and store additional info in table
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
-      await createNewUser(data.companyEmail, data.password);
+      await createNewUser(
+        data.companyEmail,
+        data.password,
+        data.firstName,
+        data.lastName,
+        data.role,
+      );
       reset();
     } catch (error) {
       console.error(error);
       setError("root", {
-        message:"Something went wrong creating your account. Please try again.",
+        message:
+          "Something went wrong creating your account. Please try again.",
       });
     }
   };
@@ -133,7 +138,7 @@ export default function AccountCreate() {
             name="role"
             control={control}
             render={({ field }) => (
-              <Listbox value={field.value} onChange={field.onChange}>
+              <Listbox value={field.value ?? ""} onChange={field.onChange}>
                 <ListboxButton className="w-full mt-2 p-2 border border-brand-grey-100 rounded-lg text-left flex justify-between items-center cursor-pointer focus:outline-none focus:ring-1 focus:ring-brand-light-blue-300">
                   <span
                     className={

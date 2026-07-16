@@ -1,9 +1,10 @@
-import AccountCreate from './components/AccountCreate'
 
 function App() {
 
   return (
-   <AccountCreate />
+   <>
+   <h1>Website</h1>
+   </>
   )
 }
 
