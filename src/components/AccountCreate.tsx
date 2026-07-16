@@ -1,7 +1,7 @@
-// 2. Todo - Config backend, create user and store additional info in table
-// 1. Refactor Parts - Form Fields as a comp, controller/ Menu as a comp, schema + type, requirements/Validation, password requirements as a comp
-// Things to ask about, controller, how the data flows, useForms different extensions, watch, register, control etc also a zod breakdown
-
+// Create Supabase client file D
+// Configure Backend (Create user), store data in table D
+// Create Auth Context
+// Create Router
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, type SubmitHandler } from "react-hook-form";
@@ -15,10 +15,11 @@ import {
   ListboxOption,
 } from "@headlessui/react";
 import { Controller } from "react-hook-form";
-import {createFranchisorFormSchema, type FormFields} from "../types/createFranchisorFormSchema"
-
-
-
+import {
+  createFranchisorFormSchema,
+  type FormFields,
+} from "../types/createFranchisorFormSchema";
+import { createNewUser } from "../api/createNewUser";
 
 export default function AccountCreate() {
   const {
@@ -27,6 +28,7 @@ export default function AccountCreate() {
     watch,
     handleSubmit,
     reset,
+    setError,
     formState: { errors, isSubmitting },
   } = useForm<FormFields>({
     resolver: zodResolver(createFranchisorFormSchema),
@@ -49,10 +51,17 @@ export default function AccountCreate() {
       test: (val: string) => /[^a-zA-Z0-9]/.test(val),
     },
   ];
-//Config backend, create user and store additional info in table
-  const onSubmit: SubmitHandler<FormFields> = (data) => {
-    console.log(data);
-    reset();
+  //Config backend, create user and store additional info in table
+  const onSubmit: SubmitHandler<FormFields> = async (data) => {
+    try {
+      await createNewUser(data.companyEmail, data.password);
+      reset();
+    } catch (error) {
+      console.error(error);
+      setError("root", {
+        message:"Something went wrong creating your account. Please try again.",
+      });
+    }
   };
 
   return (
@@ -205,6 +214,11 @@ export default function AccountCreate() {
         >
           {isSubmitting ? "Loading..." : "Continue"}
         </button>
+        {errors.root && (
+          <div className="text-red-500 text-[12px] text-center">
+            {errors.root.message}
+          </div>
+        )}
         <div className="flex justify-center text-center text-brand-grey-200">
           <p className="text-[12px] max-w-[] ">
             By continuing, you acknowledge that you understand and agree to the{" "}
