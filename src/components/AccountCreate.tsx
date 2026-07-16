@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import Icon from "../assets/brand/icon_lb.svg?react";
 import { Check, X } from "lucide-react";
+import { roles } from "../constance/roles";
 import {
   Listbox,
   ListboxButton,
@@ -15,13 +16,8 @@ import {
 } from "@headlessui/react";
 import { Controller } from "react-hook-form";
 import {createFranchisorFormSchema, type FormFields} from "../types/createFranchisorFormSchema"
-const roles = [
-  "CEO / Founder",
-  "COO (Chief Operating Officer)",
-  "Head of Operations",
-  "Business Development Manager",
-  "Executive Assistant / Chief of Staff",
-] as const;
+
+
 
 
 export default function AccountCreate() {
@@ -129,7 +125,7 @@ export default function AccountCreate() {
             control={control}
             render={({ field }) => (
               <Listbox value={field.value} onChange={field.onChange}>
-                <ListboxButton className="w-full mt-2 p-2 border border-brand-grey-100 rounded-lg text-left flex justify-between items-center focus:outline-none focus:ring-1 focus:ring-brand-light-blue-300">
+                <ListboxButton className="w-full mt-2 p-2 border border-brand-grey-100 rounded-lg text-left flex justify-between items-center cursor-pointer focus:outline-none focus:ring-1 focus:ring-brand-light-blue-300">
                   <span
                     className={
                       field.value ? "text-black " : "text-brand-grey-200"

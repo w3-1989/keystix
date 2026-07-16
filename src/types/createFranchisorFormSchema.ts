@@ -1,17 +1,12 @@
 import {z} from "zod"
+import { roles } from "../constance/roles";
 export const createFranchisorFormSchema = z
   .object({
     firstName: z.string().min(1, "First name is required"),
     lastName: z.string().min(1, "Last name is required"),
     companyEmail: z.email(),
     role: z.enum(
-      [
-        "CEO / Founder",
-        "COO (Chief Operating Officer)",
-        "Head of Operations",
-        "Business Development Manager",
-        "Executive Assistant / Chief of Staff",
-      ],
+      roles,
       { error: "Role is Required" },
     ),
     password: z
