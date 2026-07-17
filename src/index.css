@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme{
+    
     /*Greys*/
     --color-brand-grey-50: #F5F5F5;
     --color-brand-grey-100: #E5E5E5;
@@ -13,5 +14,4 @@
     /*Fonts*/
     --font-adelphi: "adelphi-pe-variable", sans-serif;
     --font-dm-sans: "dm-sans", sans-serif;
-
 }
