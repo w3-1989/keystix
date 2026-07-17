@@ -1,5 +1,4 @@
-// Create Auth Context
-// Create Router
+// Create Auth Context (Need to go threw on lesson)
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, type SubmitHandler } from "react-hook-form";

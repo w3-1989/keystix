@@ -2,7 +2,9 @@
 
 @theme{
     /*Greys*/
+    --color-brand-grey-50: #F5F5F5;
     --color-brand-grey-100: #E5E5E5;
+    --color-brand-grey-150: #ECECEC;
     --color-brand-grey-200: #B9B9B9;
 
     /*Colors*/
