@@ -2,11 +2,12 @@
 
 import { Outlet } from "react-router";
 import DashBoardMenuBar from "../components/DashBoardMenuBar";
+import ProtectedRoutes from "../components/ProtectedRoutes";
 export default function Dashboard() {
   return (
     <div className="flex">
       <DashBoardMenuBar />
-      <Outlet />
+      <ProtectedRoutes><Outlet /></ProtectedRoutes>
     </div>
   );
 }

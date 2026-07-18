@@ -11,11 +11,13 @@ import Documentation from "./pages/Documentation";
 import ReferAFriend from "./pages/ReferAFriend";
 import Support from "./pages/Support";
 import Home from "./pages/Home";
+import SuggestFeatures from "./pages/SuggestFeatures";
 
 export const router = createBrowserRouter([
   { path: "/", element: <App /> },
   { path: "/create-account", element: <CreateAccount /> },
   { path: "/login", element: <Login /> },
+
   {
     path: "/dashboard",
     element: <Menu />,
@@ -26,31 +28,35 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/locations",
-        element: <Locations/>
+        element: <Locations />,
       },
-        {
+      {
         path: "/dashboard/compliance",
         element: <Compliance />,
       },
       {
         path: "/dashboard/documents",
-        element: <Documents/>
+        element: <Documents />,
       },
       {
         path: "/dashboard/settings",
-        element: <Settings/>
+        element: <Settings />,
       },
-       {
+      {
         path: "/dashboard/documentation",
         element: <Documentation />,
       },
       {
         path: "/dashboard/refer-a-friend",
-        element: <ReferAFriend/>
+        element: <ReferAFriend />,
       },
-        {
+      {
         path: "/dashboard/support",
         element: <Support />,
+      },
+      {
+        path: "/dashboard/suggest-features",
+        element: <SuggestFeatures />,
       },
     ],
   },

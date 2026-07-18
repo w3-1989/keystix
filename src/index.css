@@ -1,17 +1,34 @@
 @import "tailwindcss";
 
-@theme{
-    
-    /*Greys*/
-    --color-brand-grey-50: #F5F5F5;
-    --color-brand-grey-100: #E5E5E5;
-    --color-brand-grey-150: #ECECEC;
-    --color-brand-grey-200: #B9B9B9;
+@theme {
+  /*Greys*/
+  /* Greys */
+  --color-brand-grey-50: #f7f7f8;
+  --color-brand-grey-100: #efeff1;
+  --color-brand-grey-150: #e3e4e7;
+  --color-brand-grey-200: #b4b7bd;
+  --color-brand-grey-300: #9498a0;
+  --color-brand-grey-400: #757980;
+  --color-brand-grey-500: #5b5f66;
+  --color-brand-grey-600: #43464c;
+  --color-brand-grey-700: #2e3033;
+  --color-brand-grey-800: #1c1d1f;
+  --color-brand-grey-900: #0f1011;
 
-    /*Colors*/
-    --color-brand-light-blue-300: #3BC6FF;
-    
-    /*Fonts*/
-    --font-adelphi: "adelphi-pe-variable", sans-serif;
-    --font-dm-sans: "dm-sans", sans-serif;
+  /*Colors*/
+  /* Brand Blue */
+  --color-brand-light-blue-50: #f0faff;
+  --color-brand-light-blue-100: #dbf4ff;
+  --color-brand-light-blue-200: #94dfff;
+  --color-brand-light-blue-300: #3bc6ff;
+  --color-brand-light-blue-400: #14a5ff;
+  --color-brand-light-blue-500: #0080f0;
+  --color-brand-light-blue-600: #0560c7;
+  --color-brand-light-blue-700: #0848a0;
+  --color-brand-light-blue-800: #0d3273;
+  --color-brand-light-blue-900: #0c1d45;
+
+  /*Fonts*/
+  --font-adelphi: "adelphi-pe-variable", sans-serif;
+  --font-dm-sans: "dm-sans", sans-serif;
 }
