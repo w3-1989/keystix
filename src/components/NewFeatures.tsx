@@ -11,7 +11,7 @@ export default function NewFeatures() {
     <main className="flex flex-col m-4 p-4 rounded-[8px] bg-white">
       <div className="flex flex-row gap-2 items-center mb-2">
         <Sparkles size={14} className="text-brand-light-blue-300" />
-        <p className="font-dm-sans text-[14px]">New Features Coming Soon!</p>
+        <p className="font-dm-sans text-[12px]">New Features Coming Soon!</p>
       </div>
       <div>
         <p className="font-dm-sans text-[12px] text-gray-300 mb-4">
