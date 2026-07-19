@@ -1,5 +1,9 @@
+import PageHeader from "../components/PageHeader";
+
 export default function Home(){
     return (
-        <p>Home</p>
+        <>
+        <PageHeader/>
+        </>
     )
 }

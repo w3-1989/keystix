@@ -23,36 +23,44 @@ export const router = createBrowserRouter([
     element: <Menu />,
     children: [
       {
-        path: "/dashboard",
+        path: "/dashboard/home",
         element: <Home />,
+        handle: {breadcrumb : "Home", title: "Home"},
       },
       {
         path: "/dashboard/locations",
         element: <Locations />,
+        handle: {breadcrumb : "Locations", title: "Locations"},
       },
       {
         path: "/dashboard/compliance",
         element: <Compliance />,
+        handle: {breadcrumb : "Compliance", title: "Compliance"},
       },
       {
         path: "/dashboard/documents",
         element: <Documents />,
+        handle: {breadcrumb : "Documents", title: "Documents"},
       },
       {
         path: "/dashboard/settings",
         element: <Settings />,
+        handle: {breadcrumb : "Settings", title: "Settings"},
       },
       {
         path: "/dashboard/documentation",
         element: <Documentation />,
+        handle: {breadcrumb : "Documentation", title: "Documentation"},
       },
       {
         path: "/dashboard/refer-a-friend",
         element: <ReferAFriend />,
+        handle: {breadcrumb : "Refer-a-Friend", title: "Refer a Friend"},
       },
       {
         path: "/dashboard/support",
         element: <Support />,
+        handle: {breadcrumb : "Support", title: "Support"},
       },
       {
         path: "/dashboard/suggest-features",

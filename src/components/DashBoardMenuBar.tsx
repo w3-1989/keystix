@@ -18,7 +18,7 @@ import { NavLink } from "react-router";
 import NewFeatures from "./NewFeatures";
 
 const mainNavItems = [
-  { icon: Home, title: "Home", href: "/dashboard" },
+  { icon: Home, title: "Home", href: "/dashboard/home" },
   { icon: MapPin, title: "Locations", href: "/dashboard/locations" },
   { icon: ShieldCheck, title: "Compliance", href: "/dashboard/compliance" },
   { icon: BookText, title: "Documents", href: "/dashboard/documents" },

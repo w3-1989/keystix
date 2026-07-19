@@ -1,5 +1,7 @@
+import PageHeader from "../components/PageHeader";
+
 export default function Support(){
     return(
-        <p>Support</p>
+        <PageHeader/>
     )
 }

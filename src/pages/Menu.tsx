@@ -5,9 +5,13 @@ import DashBoardMenuBar from "../components/DashBoardMenuBar";
 import ProtectedRoutes from "../components/ProtectedRoutes";
 export default function Dashboard() {
   return (
-    <div className="flex">
+    <div className="flex h-screen overflow-hidden">
       <DashBoardMenuBar />
-      <ProtectedRoutes><Outlet /></ProtectedRoutes>
+      <div className="flex-1 overflow-y-auto">
+        <ProtectedRoutes>
+          <Outlet />
+        </ProtectedRoutes>
+      </div>
     </div>
   );
 }
