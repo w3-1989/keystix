@@ -1,5 +1,7 @@
+import ComingSoon from "../../components/ComingSoon";
+
 export default function LaunchPad(){
     return (
-        <p>Launch Pad Page</p>
+        <ComingSoon/>
     )
 }

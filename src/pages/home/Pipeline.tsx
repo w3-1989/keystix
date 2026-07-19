@@ -1,5 +1,7 @@
+import ComingSoon from "../../components/ComingSoon";
+
 export default function Pipeline(){
     return (
-        <p>Pipeline Page</p>
+        <ComingSoon/>
     )
 }

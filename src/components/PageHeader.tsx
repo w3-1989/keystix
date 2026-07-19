@@ -3,7 +3,7 @@
 //Create internal nav system
 //Create inner page content
 
-import {Moon, Bell} from "lucide-react"
+import {Settings, Bell} from "lucide-react"
 import BreadCrumb from "./BreadCrumb";
 import { useMatches } from "react-router";
 
@@ -23,7 +23,7 @@ export default function PageHeader() {
           <Bell size={12} />
         </button>
         <button className="p-4 border cursor-pointer border-brand-grey-100 rounded-lg">
-          <Moon size={12} />
+          <Settings size={12} />
         </button>
       </div>
     </div>

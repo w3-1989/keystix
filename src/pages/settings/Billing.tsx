@@ -1,5 +1,7 @@
+import ComingSoon from "../../components/ComingSoon";
+
 export default function Billing(){
     return(
-        <p>Billing</p>
+        <ComingSoon/>
     )
 }

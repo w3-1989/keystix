@@ -62,7 +62,7 @@ export default function DashBoardMenuBar() {
         </div>
 
         <div className="flex-1 overflow-y-auto px-4 pb-4">
-          <div className="mb-3">
+          <div className="mb-6">
             {mainNavItems.map(({ icon, title, href }) => (
               <NavLink key={href} to={href}>
                 {({ isActive }) => (

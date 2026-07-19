@@ -1,5 +1,7 @@
+import ComingSoon from "../../components/ComingSoon";
+
 export default function Snapshot(){
     return (
-        <p>Snapshot Page</p>
+        <ComingSoon/>
     )
 }

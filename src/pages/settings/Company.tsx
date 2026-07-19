@@ -1,5 +1,7 @@
+import ComingSoon from "../../components/ComingSoon";
+
 export default function Company(){
     return(
-        <p>Company</p>
+        <ComingSoon/>
     )
 }
