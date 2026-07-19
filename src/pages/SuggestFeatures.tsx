@@ -1,5 +1,7 @@
+import PageHeader from "../components/PageHeader";
+
 export default function SuggestFeatures(){
     return (
-        <p>Suggest Features</p>
+        <PageHeader/>
     )
 }

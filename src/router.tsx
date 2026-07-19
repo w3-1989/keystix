@@ -65,6 +65,7 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/suggest-features",
         element: <SuggestFeatures />,
+        handle: {breadcrumb : "Suggest-a-Features", title: "Suggest Feature"}
       },
     ],
   },
