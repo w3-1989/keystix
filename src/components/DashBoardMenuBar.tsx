@@ -64,7 +64,7 @@ export default function DashBoardMenuBar() {
         <div className="flex-1 overflow-y-auto px-4 pb-4">
           <div className="mb-3">
             {mainNavItems.map(({ icon, title, href }) => (
-              <NavLink key={href} to={href} end>
+              <NavLink key={href} to={href}>
                 {({ isActive }) => (
                   <NavItem icon={icon} title={title} isActive={isActive} />
                 )}
@@ -77,7 +77,7 @@ export default function DashBoardMenuBar() {
               other
             </p>
             {secondaryNavItems.map(({ icon, title, href }) => (
-              <NavLink key={href} to={href} end>
+              <NavLink key={href} to={href}>
                 {({ isActive }) => (
                   <NavItem icon={icon} title={title} isActive={isActive} />
                 )}
