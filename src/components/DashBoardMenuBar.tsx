@@ -39,7 +39,7 @@ export default function DashBoardMenuBar() {
   return (
     <main className="flex flex-col h-screen w-[320px] overflow-hidden bg-brand-grey-50 justify-between">
       <div className="flex flex-col overflow-hidden">
-        <div className="p-4">
+        <div className="p-4 mt-1">
           <div className="flex flex-row items-center place-content-between">
             <Horizontal className="w-40 h-16" />
             <PanelLeftClose

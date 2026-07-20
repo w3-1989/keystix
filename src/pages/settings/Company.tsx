@@ -1,7 +1,10 @@
-import ComingSoon from "../../components/ComingSoon";
+import SettingsActionBar from "../../components/SettingsActionBar";
 
-export default function Company(){
-    return(
-        <ComingSoon/>
-    )
+
+export default function Company() {
+  return (
+    <>
+    <SettingsActionBar/>
+    </>
+  );
 }
