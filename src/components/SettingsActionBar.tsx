@@ -1,6 +1,12 @@
-export default function SettingsActionBar() {
+type SettingsActionBarProps = {
+  onCancel: () => void;
+  isDirty?: boolean;
+};
+
+export default function SettingsActionBar({onCancel, isDirty}: SettingsActionBarProps) {
+
   return (
-    <main className="flex flex-row justify-between p-4 m-3 ">
+    <main className="flex flex-row justify-between  ">
       <div className="flex flex-col">
         <h3 className="font-adelphi">Company</h3>
         <p className="text-[12px] font-dm-sans text-brand-grey-200">
@@ -8,10 +14,10 @@ export default function SettingsActionBar() {
         </p>
       </div>
       <div className="flex flex-row gap-2">
-        <button className="w-[64px] h-[32px] border text-[12px] cursor-pointer border-brand-grey-100 rounded-[4px]">
+        <button onClick={onCancel} type="button" className="w-[64px] h-[32px] border text-[12px] cursor-pointer border-brand-grey-100 rounded-[4px]">
           Cancel
         </button>
-        <button className="w-[64px] h-[32px] border text-[12px] cursor-pointer bg-brand-light-blue-300 text-white rounded-[4px]">
+        <button disabled={!isDirty} type="submit" className="w-[64px] h-[32px] border text-[12px] cursor-pointer bg-brand-light-blue-300 text-white rounded-[4px]">
           Save
         </button>
       </div>
