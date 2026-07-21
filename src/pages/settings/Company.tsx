@@ -2,6 +2,7 @@ import SettingsActionBar from "../../components/SettingsActionBar";
 import { useForm } from "react-hook-form";
 import FormSection from "../../components/ui/FormSection";
 import FormInput from "../../components/ui/FormInput";
+import CompanyLogoUploader from "../../components/ui/CompanyLogoUploader";
 
 type CompanyFormValues = {
   companyName: string;
@@ -121,51 +122,61 @@ export default function Company() {
     console.log(data); // Supabase update call goes here later
   };
   return (
-    <form className="p-4 m-3" onSubmit={handleSubmit(onSave)}>
+    <form
+      onSubmit={handleSubmit(onSave)}
+      className="pl-4 pr-4 m-3  h-full flex flex-col"
+    >
       <div className="mb-4">
         <SettingsActionBar onCancel={() => reset()} isDirty={isDirty} />
       </div>
-      <div className="flex-1 flex-col gap-3">
-        <FormSection label="Company Details">
-          {companyDetailsFields.map((field) => (
-            <FormInput
-              placeholder={field.placeholder}
-              key={field.name}
-              label={field.label}
-              {...register(field.name)}
-            />
-          ))}
-        </FormSection>
-        <FormSection label="Contact">
-          {contactDetailsFields.map((field) => (
-            <FormInput
-              placeholder={field.placeholder}
-              key={field.name}
-              label={field.label}
-              {...register(field.name)}
-            />
-          ))}
-        </FormSection>
-        <FormSection label="Legal">
-          {legalDetailsFields.map((field) => (
-            <FormInput
-              placeholder={field.placeholder}
-              key={field.name}
-              label={field.label}
-              {...register(field.name)}
-            />
-          ))}
-        </FormSection>
-        <FormSection label="Location">
-          {locationDetailsFields.map((field) => (
-            <FormInput
-              placeholder={field.placeholder}
-              key={field.name}
-              label={field.label}
-              {...register(field.name)}
-            />
-          ))}
-        </FormSection>
+
+      <div className="flex gap-8 mt-4 flex-1 min-h-0">
+        <div className="flex-1 ">
+          <FormSection label="General Information">
+            {companyDetailsFields.map((field) => (
+              <FormInput
+                key={field.name}
+                label={field.label}
+                placeholder={field.placeholder}
+                {...register(field.name)}
+              />
+            ))}
+          </FormSection>
+          <FormSection label="Contact">
+            {contactDetailsFields.map((field) => (
+              <FormInput
+                key={field.name}
+                label={field.label}
+                placeholder={field.placeholder}
+                {...register(field.name)}
+              />
+            ))}
+          </FormSection>
+          <FormSection label="Legal">
+            {legalDetailsFields.map((field) => (
+              <FormInput
+                key={field.name}
+                label={field.label}
+                placeholder={field.placeholder}
+                {...register(field.name)}
+              />
+            ))}
+          </FormSection>
+          <FormSection label="Region & Currency">
+            {locationDetailsFields.map((field) => (
+              <FormInput
+                key={field.name}
+                label={field.label}
+                placeholder={field.placeholder}
+                {...register(field.name)}
+              />
+            ))}
+          </FormSection>
+        </div>
+
+        <div className="shrink-0 self-start">
+          <CompanyLogoUploader />
+        </div>
       </div>
     </form>
   );

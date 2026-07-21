@@ -13,7 +13,7 @@ type PageTypeProps = {
 
 export default function PageTabs({ tabs }: PageTypeProps) {
   return (
-    <div className="flex flex-row gap-6 border-b border-brand-grey-100 m-3 pt-2 px-2">
+    <div className="flex flex-row gap-6 border-b border-brand-grey-100 ml-3 mr-3 mb-3 pt-2 px-2">
       {tabs.map(({ icon: Icon, label, href }) => (
         <NavLink
           key={href}
