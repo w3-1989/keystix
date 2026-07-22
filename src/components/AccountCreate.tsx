@@ -17,6 +17,7 @@ import {
   type FormFields,
 } from "../types/createFranchisorFormSchema";
 import { createNewUser } from "../api/createNewUser";
+import { useNavigate } from "react-router";
 
 export default function AccountCreate() {
   const {
@@ -30,6 +31,8 @@ export default function AccountCreate() {
   } = useForm<FormFields>({
     resolver: zodResolver(createFranchisorFormSchema),
   });
+
+  const navigate = useNavigate()
 
   const password = watch("password");
 
@@ -59,6 +62,7 @@ export default function AccountCreate() {
         data.role,
       );
       reset();
+      navigate("/dashboard/home")
     } catch (error) {
       console.error(error);
       setError("root", {

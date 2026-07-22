@@ -7,7 +7,7 @@ export async function createNewUser(
   lastName: string,
   role: string,
 ) {
-  const { error: errorCreatingUser } = await supabase.auth.signUp({
+  const { data, error: errorCreatingUser } = await supabase.auth.signUp({
     email: companyEmail,
     password: password,
   });
@@ -15,9 +15,15 @@ export async function createNewUser(
     throw errorCreatingUser;
   }
 
+  const userId = data.user?.id;
+  if (!userId) {
+    throw new Error("No user id returned from signUp");
+  }
+
   const { error: errorInsertingUsersData } = await supabase
     .from("users")
     .insert({
+      id: userId,
       first_name: firstName,
       last_name: lastName,
       company_email: companyEmail,

@@ -1,10 +1,12 @@
+//Review code 
+
 import { useRef, useState, useMemo, useEffect } from "react";
 import type { DragEvent, ChangeEvent, FormEvent } from "react";
 import { UploadCloud } from "lucide-react";
 import DOMPurify from "dompurify";
 
 const ALLOWED_TYPES = ["image/svg+xml", "image/png", "image/jpeg"];
-const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
+const MAX_FILE_SIZE = 2 * 1024 * 1024; 
 
 export default function CompanyLogoUploader() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -78,9 +80,9 @@ export default function CompanyLogoUploader() {
       id="form-file-upload"
       onDragEnter={handleDrag}
       onSubmit={(e: FormEvent) => e.preventDefault()}
-      className="relative flex flex-col items-center gap-6 w-[330px] p-6 bg-white border border-brand-grey-100 rounded-2xl"
+      className="relative flex flex-col items-center gap-6 w-[340px] p-6 bg-white border border-brand-grey-100 rounded-2xl"
     >
-      <h3 className="font-adelphi text-[22px]">Company Logo</h3>
+      <h3 className="font-dm-sans font-medium text-[14px]">Company Logo</h3>
 
       <div className="w-36 h-36 rounded-2xl bg-brand-grey-100 flex items-center justify-center overflow-hidden">
         {previewUrl && <img src={previewUrl} alt="Company logo preview" className="w-24 h-24 object-contain" />}
