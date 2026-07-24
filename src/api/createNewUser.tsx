@@ -1,14 +1,14 @@
 import { supabase } from "../config/supabaseClient";
 
 export async function createNewUser(
-  companyEmail: string,
+  email: string,
   password: string,
   firstName: string,
   lastName: string,
   role: string,
 ) {
   const { data, error: errorCreatingUser } = await supabase.auth.signUp({
-    email: companyEmail,
+    email: email,
     password: password,
   });
   if (errorCreatingUser) {
@@ -26,7 +26,7 @@ export async function createNewUser(
       id: userId,
       first_name: firstName,
       last_name: lastName,
-      company_email: companyEmail,
+      email: email,
       role: role,
     });
 

@@ -8,9 +8,13 @@ import DOMPurify from "dompurify";
 const ALLOWED_TYPES = ["image/svg+xml", "image/png", "image/jpeg"];
 const MAX_FILE_SIZE = 2 * 1024 * 1024; 
 
-export default function CompanyLogoUploader() {
+type CompanyLogoUploaderProps = {
+  file: File | null,
+  setFile: (file: File) => void
+}
+
+export default function CompanyLogoUploader({file, setFile}:CompanyLogoUploaderProps) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [file, setFile] = useState<File | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [dragActive, setDragActive] = useState(false);
 
@@ -76,7 +80,7 @@ export default function CompanyLogoUploader() {
   }
 
   return (
-    <form
+    <div
       id="form-file-upload"
       onDragEnter={handleDrag}
       onSubmit={(e: FormEvent) => e.preventDefault()}
@@ -125,6 +129,6 @@ export default function CompanyLogoUploader() {
           className="absolute inset-0 rounded-2xl border-2 border-brand-light-blue-300 bg-brand-light-blue-300/10"
         ></div>
       )}
-    </form>
+    </div>
   );
 }

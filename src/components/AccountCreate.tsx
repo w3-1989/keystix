@@ -55,7 +55,7 @@ export default function AccountCreate() {
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
       await createNewUser(
-        data.companyEmail,
+        data.email,
         data.password,
         data.firstName,
         data.lastName,
@@ -120,20 +120,6 @@ export default function AccountCreate() {
             )}
           </label>
         </div>
-        <label className="flex flex-col text-brand-grey-200 text-[12px]">
-          Company Email
-          <input
-            {...register("companyEmail")}
-            type="text"
-            placeholder="Enter your email address..."
-            className="p-2 mt-2 border-1 text-black placeholder:text-brand-grey-200 border-brand-grey-100 rounded-lg focus:outline-none focus:ring-1 focus:ring-brand-light-blue-300"
-          />
-          {errors.companyEmail && (
-            <div className="text-red-500 mt-0.5">
-              {errors.companyEmail.message}
-            </div>
-          )}
-        </label>
 
         <label className="flex flex-col text-brand-grey-200 text-[12px]">
           Role
@@ -170,6 +156,20 @@ export default function AccountCreate() {
           />
           {errors.role && (
             <div className="text-red-500 mt-0.5">{errors.role.message}</div>
+          )}
+        </label>
+        <label className="flex flex-col text-brand-grey-200 text-[12px]">
+          Email
+          <input
+            {...register("email")}
+            type="text"
+            placeholder="Enter your email address..."
+            className="p-2 mt-2 border-1 text-black placeholder:text-brand-grey-200 border-brand-grey-100 rounded-lg focus:outline-none focus:ring-1 focus:ring-brand-light-blue-300"
+          />
+          {errors.email && (
+            <div className="text-red-500 mt-0.5">
+              {errors.email.message}
+            </div>
           )}
         </label>
 
